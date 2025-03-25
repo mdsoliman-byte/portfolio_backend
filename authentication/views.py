@@ -4,6 +4,8 @@ from rest_framework import status
 from .serializers import UserRegistrationSerializer, UserLoginSerializer, OTPVerificationSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import CustomUser
+from rest_framework.permissions import IsAdminUser
+from rest_framework.generics import ListAPIView
 
 # User Registration View
 class UserRegistrationView(APIView):
@@ -41,3 +43,9 @@ class OTPVerificationView(APIView):
         if serializer.is_valid():
             return Response(serializer.validated_data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Admin User List View
+class AdminUserListView(ListAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserRegistrationSerializer
+    permission_classes = [IsAdminUser]
