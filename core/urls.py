@@ -8,6 +8,7 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),  # Updated path
     path('api/home/', include('home.urls')),  # Updated path
     # path('api/skills/', include('skills.urls')),
+    path('api/projects/', include('projects.urls')),  # Updated path
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

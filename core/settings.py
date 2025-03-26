@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "authentication",
     # "skills",
     "home",
+    "projects",
     "rest_framework.authtoken",  # Add this line
 ]
 
@@ -127,7 +128,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # This will point to the static folder in the root directory of the project
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
