@@ -10,4 +10,4 @@ class Home(models.Model):
     profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.title
