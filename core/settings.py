@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "authentication",
+    # "skills",
+    "home",
     "rest_framework.authtoken",  # Add this line
 ]
 
@@ -137,5 +139,7 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

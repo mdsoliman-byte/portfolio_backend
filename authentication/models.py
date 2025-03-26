@@ -27,6 +27,10 @@ class CustomUserManager(BaseUserManager):
 
 # Custom User Model
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    USER_TYPE_CHOICES = (
+        ('user', 'User'),
+        ('admin', 'Admin'),
+    )
     username = models.CharField(max_length=50, blank=True, null=True)
     first_name = models.CharField(max_length=50, blank=True, null=True) 
     last_name = models.CharField(max_length=50, blank=True, null=True)
@@ -36,7 +40,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     otp = models.CharField(max_length=6, blank=True, null=True)
-
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='user')
+   
     groups = models.ManyToManyField(
         Group,
         related_name="customuser_set",  # Unique related_name
