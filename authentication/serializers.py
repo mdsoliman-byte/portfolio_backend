@@ -46,6 +46,7 @@ class UserLoginSerializer(serializers.Serializer):
                         'phone': user.phone,
                         'first_name': user.first_name,
                         'last_name': user.last_name,
+                        'user_type': user.user_type,
                     },
                     'access_token': str(refresh.access_token),
                     'refresh_token': str(refresh)
