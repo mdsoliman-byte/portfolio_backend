@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "rest_framework",
-    "corsheaders",
+    "corsheaders",  # Ensure this is included
     "authentication",
     # "skills",
     "home",
     "projects",
+    "about",
+    "blog",
     "rest_framework.authtoken",  # Add this line
 ]
 
@@ -51,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add this middleware
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -148,7 +150,6 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    
+    "http://localhost:8080",  # Add your frontend's origin
 ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

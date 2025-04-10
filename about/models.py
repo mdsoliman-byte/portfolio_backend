@@ -1,47 +1,46 @@
 from django.db import models
 
-# Create your models here.
-
-# about me 
-# name, title , description, image, email, phone, address, website, linkedin, github, twitter, download cv, 
-class AboutMe(models.Model):
-    name = models.CharField(max_length=100)
+class About(models.Model):
+    full_name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    description = models.TextField()
-    image = models.ImageField(upload_to='about_images/')
-    email = models.EmailField()
-    phone = models.CharField(max_length=15)
-    address = models.TextField()
-    website = models.URLField()
-    linkedin = models.URLField()
-    github = models.URLField()
-    facebook = models.URLField()
-    twitter = models.URLField()
-    download_cv = models.FileField(upload_to='cv_files/')
+    bio = models.JSONField(default=list, help_text="List of bio sentences")
+    profile_image = models.ImageField(upload_to='about_images/', blank=True, null=True)
+    contact_location = models.CharField(max_length=255)
+    contact_email = models.EmailField()
+    available_for_freelance = models.BooleanField(default=True)
+    social_github = models.URLField(blank=True, null=True)
+    social_twitter = models.URLField(blank=True, null=True)
+    social_linkedin = models.URLField(blank=True, null=True)
 
-# exprience 
-# title, company, description, start_date, end_date, 
+    def __str__(self):
+        return self.full_name
 
 class Experience(models.Model):
-    title = models.CharField(max_length=100)
+    about = models.ForeignKey(About, related_name="experience", on_delete=models.CASCADE)
+    position = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
-    description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField(null=True, blank=True)
-# education
-# degree, major, start_date, end_date, university,
+    period = models.CharField(max_length=50)
+    description = models.JSONField(default=list, help_text="List of details")
+
+    def __str__(self):
+        return f"{self.position} at {self.company}"
 
 class Education(models.Model):
+    about = models.ForeignKey(About, related_name="education", on_delete=models.CASCADE)
     degree = models.CharField(max_length=100)
-    major = models.CharField(max_length=100)
-    start_date = models.DateField()
-    end_date = models.DateField(null=True, blank=True)
-    university = models.CharField(max_length=100)
+    institution = models.CharField(max_length=100)
+    period = models.CharField(max_length=50)
+    description = models.TextField()
 
-# Interests & Specializations
-# title , short _description,
-class InterestSpecialization(models.Model):
+    def __str__(self):
+        return f"{self.degree} from {self.institution}"
+
+class Skill(models.Model):
+    about = models.ForeignKey(About, related_name="skills", on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    short_description = models.TextField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
 
 

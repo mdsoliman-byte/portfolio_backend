@@ -12,11 +12,8 @@ class ProjectListCreateView(generics.ListCreateAPIView):
 class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    lookup_field = 'slug'
 
-class ProjectCategoryListCreateView(generics.ListCreateAPIView):
-    queryset = ProjectCategory.objects.all()
-    serializer_class = ProjectCategorySerializer
-
-class ProjectCategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
+class ProjectCategoryListView(generics.ListAPIView):
     queryset = ProjectCategory.objects.all()
     serializer_class = ProjectCategorySerializer
