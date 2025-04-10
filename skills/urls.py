@@ -1,19 +1,8 @@
-# from django.urls import path
-# from .views import (
-#     SkillCategoryListCreateView,
-#     SkillCategoryDetailView,
-#     SkillListCreateView,
-#     SkillDetailView,
-#     PublicSkillListView,  # Added missing import
-# )
+from django.urls import path
+from .views import SkillListCreateView, SkillDetailView, SkillCategoryListView
 
-# urlpatterns = [
-#     # Admin endpoints
-#     path('admin/categories/', SkillCategoryListCreateView.as_view()),
-#     path('admin/categories/<slug:slug>/', SkillCategoryDetailView.as_view()),
-#     path('admin/skills/', SkillListCreateView.as_view()),
-#     path('admin/skills/<slug:slug>/', SkillDetailView.as_view()),
-    
-#     # Public endpoints
-#     path('skills/', PublicSkillListView.as_view(), name='public-skills'),
-# ]
+urlpatterns = [
+    path('data/', SkillListCreateView.as_view(), name='skill-list-create'),
+    path('<int:id>/', SkillDetailView.as_view(), name='skill-detail'),
+    path('categories/', SkillCategoryListView.as_view(), name='skill-categories'),
+]

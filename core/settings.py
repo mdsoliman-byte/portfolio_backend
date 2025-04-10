@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",  # Ensure this is included
     "authentication",
-    # "skills",
+    "skills",
     "home",
     "projects",
     "about",
