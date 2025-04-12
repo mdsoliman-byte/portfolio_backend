@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "projects",
     "about",
     "blog",
+    "shop",
     "rest_framework.authtoken",  # Add this line
 ]
 
