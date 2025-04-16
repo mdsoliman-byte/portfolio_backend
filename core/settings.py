@@ -150,19 +150,19 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",  # Add your frontend's origin
     "https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev",
 ]
 
 CACHES = {
-    'default': {
+    'default': {    
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',
     }
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-idx-portfoliobackendgit-1744754619441.cluster-ejd22kqny5htuv5dfowoyipt52.cloudworkstations.dev', 'https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev']
+CSRF_TRUSTED_ORIGINS = ['https://8000-idx-portfoliobackendgit-1744754619441.cluster-ejd22kqny5htuv5dfowoyipt52.cloudworkstations.dev', 'https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev', 'http://localhost:8080/']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOW_ALL_ORIGINS = True 
