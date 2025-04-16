@@ -50,11 +50,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Add this middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # Add this middleware
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -165,3 +165,4 @@ CACHES = {
 CSRF_TRUSTED_ORIGINS = ['https://8000-idx-portfoliobackendgit-1744754619441.cluster-ejd22kqny5htuv5dfowoyipt52.cloudworkstations.dev', 'https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOW_ALL_ORIGINS = True 
