@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x&!qxq&7b-%s!7$t-gof5-ckkvnxiisbnu7h$%1xv%veqm7*q5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -150,6 +150,7 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
+CORS_ALLOW_ALL_ORIGINS = True 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",  # Add your frontend's origin
     "https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev",
@@ -163,6 +164,4 @@ CACHES = {
 }
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-idx-portfoliobackendgit-1744754619441.cluster-ejd22kqny5htuv5dfowoyipt52.cloudworkstations.dev', 'https://9000-idx-dev-harborgit-1744743599445.cluster-7ubberrabzh4qqy2g4z7wgxuw2.cloudworkstations.dev']
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOW_ALL_ORIGINS = True 
